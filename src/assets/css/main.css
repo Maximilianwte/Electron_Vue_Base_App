@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.theme_dark {
+  --bg-primary: #222222;
+  --main-primary: #868686;
+  --bg-secondary: #363636;
+  --main-secondary: #AEAEAE;
+}
+
+.theme_light {
+  --bg-primary: #FEFCFD;
+  --main-primary: #747474;
+  --bg-secondary: rgb(238, 238, 238);
+  --main-secondary: #585858;
+}
+
+.clickable {
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+  }
+
+li, ul {
+  text-decoration: none;
+  list-style: none;
+  text-align: right;
+  transition: 0.5s;
+}
+
+.button_row {
+  display: flex;
+  justify-content: space-between;
+  width: 25vw;
+}
+
+#app {
+  transition: background-color 0.5;
+}
+
+.item {
+  justify-content: space-between;
+}
