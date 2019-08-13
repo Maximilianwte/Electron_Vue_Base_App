@@ -56,6 +56,17 @@ function createWindow() {
     win.loadURL('app://./index.html')
   }
 
+  win.on("uncaughtException", (err) => {
+    const messageBoxOptions = {
+         type: "error",
+         title: "Error in Main process",
+         message: "Something failed. We closed all windows as well as the python server."
+     };
+     stop_pythonServer();
+     dialog.showMessageBox(messageBoxOptions);
+     throw err;
+ });
+
   win.on('closed', () => {
     win = null
   })
@@ -111,10 +122,7 @@ if (isDevelopment) {
 try {
   start_pythonServer()
 }
-catch {
-  stop_pythonServer()
-  start_pythonServer()
-}
+catch {}
 
 function start_pythonServer() {
   var pyshell = require('python-shell')
